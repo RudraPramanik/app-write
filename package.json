@@ -11,7 +11,10 @@
   "dependencies": {
     "@expo/vector-icons": "^13.0.0",
     "@react-navigation/native": "^6.1.9",
+    "@react-navigation/native-stack": "^6.9.16",
     "@rneui/base": "^4.0.0-rc.8",
+    "@rneui/template": "^4.0.0-rc.7.stable-ts",
+    "@rneui/themed": "^4.0.0-rc.8",
     "appwrite": "^13.0.0",
     "expo": "~49.0.15",
     "expo-status-bar": "~1.6.0",

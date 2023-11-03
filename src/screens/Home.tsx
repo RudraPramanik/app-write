@@ -1,9 +1,10 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
 import React, { useContext, useEffect, useState } from 'react';
 //react native elements
 import { FAB } from '@rneui/themed';
 //context api
 import { AppwriteContext } from '../appwrite/appwriteContext';
+import { Image } from 'react-native';
 
 type UserObj = {
   name: string;
@@ -32,9 +33,36 @@ const Home = () => {
   }, [appwrite]);
 
   return (
-    <View>
-      <Text>Home</Text>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.welcomeContainer}>
+        <Image
+          source={{
+            uri: 'https://appwrite.io/images-ee/blog/og-private-beta.png',
+            width: 400,
+            height: 300,
+            cache: 'default',
+          }}
+          resizeMode="contain"
+        />
+        <Text style={styles.message}>
+          Build Fast. Scale Big. All in One Place.
+        </Text>
+        {userData && (
+          <View style={styles.userContainer}>
+            <Text style={styles.userDetails}>{userData.name}</Text>
+            <Text style={styles.userDetails}>{userData.email}</Text>
+          </View>
+        )}
+      </View>
+      <FAB
+        placement="right"
+        color="#f02e65"
+        size="large"
+        title="Logout"
+        icon={{ name: 'logout', color: '#FFFFFF' }}
+        onPress={handleLogout}
+      />
+    </SafeAreaView>
   );
 };
 

@@ -43,7 +43,7 @@ class AppwriteService {
     }
   }
 
-  async createLogin({ email, password, name }: loginUserAccount) {
+  async login({ email, password, name }: loginUserAccount) {
     try {
       await this.account.createEmailSession(email, password);
     } catch (error) {
